@@ -19,16 +19,20 @@ sudo virsh vol-clone --pool ${POOL} ${IMG_NAME} ${SERVER_NAME}.img
 
 sudo qemu-img resize /openstack/${SERVER_NAME}.img +100G
 
-# Create disk 
-sudo qemu-img create -f raw ${POOL_PATH}/${SERVER_NAME}-disk 80
-sudo qemu-img resize /openstack/${SERVER_NAME}-disk +200G
-
 ## SERVER
 
 METADATA="instance-id: iid-${SERVER_NAME};
 network-interfaces: |
   auto ens3
   iface ens3 inet dhcp
+  auto ens4
+  iface ens4 inet static
+  address 192.168.1.15
+  netmask 255.255.255.0
+  auto ens5
+  iface ens5 inet static
+  address 192.168.2.15
+  netmask 255.255.255.0
 
 hostname: ${SERVER_NAME}
 local-hostname: ${SERVER_NAME}
@@ -69,10 +73,9 @@ sudo virsh pool-refresh $POOL
 
 sudo virt-install -r $RAM     \
   -n $SERVER_NAME     \
-  --vcpus=15    \
+  --vcpus=5    \
   --memballoon virtio    \
   --boot hd     \
-  --network network=default --network network=hostconnect --network network=public \
+  --network network=default --network network=externalha --network network=internalha --network network=hostconnect\
   --disk vol=${POOL}/${SERVER_NAME}.img,format=qcow2,bus=virtio \
-  --disk vol=${POOL}/${SERVER_NAME}.iso,bus=virtio \
-  --disk vol=${POOL}/${SERVER_NAME}-disk,format=qcow2,bus=virtio
+  --disk vol=${POOL}/${SERVER_NAME}.iso,bus=virtio 

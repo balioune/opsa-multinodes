@@ -27,7 +27,7 @@ network-interfaces: |
   iface ens3 inet dhcp
   auto ens4
   iface ens4 inet static
-  address 192.168.150.15
+  address 192.168.2.102
   netmask 255.255.255.0
 
 hostname: ${SERVER_NAME}
@@ -72,6 +72,6 @@ sudo virt-install -r $RAM     \
   --vcpus=12    \
   --memballoon virtio    \
   --boot hd     \
-  --network network=default --network network=net1 --network network=public \
+  --network network=default --network network=internalha  --network network=hostconnect  --network network=public \
   --disk vol=${POOL}/${SERVER_NAME}.img,format=qcow2,bus=virtio \
   --disk vol=${POOL}/${SERVER_NAME}.iso,bus=virtio 
