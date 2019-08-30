@@ -1,5 +1,7 @@
 apt-get update
 
+export LC_ALL=C
+
 git clone https://git.openstack.org/openstack/openstack-ansible \
     /opt/openstack-ansible
 
