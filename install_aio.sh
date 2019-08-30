@@ -15,7 +15,7 @@ nohup scripts/bootstrap-aio.sh > /bootstrap-aio.log
 
 cd /opt/openstack-ansible/
 
-cp etc/openstack_deploy/conf.d/{aodh,gnocchi,ceilometer}.yml.aio /etc/openstack_deploy/conf.d/
+cp /opt/openstack-ansible/etc/openstack_deploy/conf.d/{aodh,gnocchi,ceilometer}.yml.aio /etc/openstack_deploy/conf.d/
 for f in $(ls -1 /etc/openstack_deploy/conf.d/*.aio); do mv -v ${f} ${f%.*}; done
 
 cd /opt/openstack-ansible/playbooks
