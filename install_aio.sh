@@ -10,8 +10,8 @@ cd /opt/openstack-ansible
 
 git checkout 16.0.27
 
-nohup scripts/bootstrap-ansible.sh
-nohup scripts/bootstrap-aio.sh
+nohup scripts/bootstrap-ansible.sh > /bootstrap-ansible.log
+nohup scripts/bootstrap-aio.sh > /bootstrap-aio.log
 
 cd /opt/openstack-ansible/
 
