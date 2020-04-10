@@ -1,0 +1,67 @@
+aodh_wsgi_processes: 1
+aodh_wsgi_processes_max: 2
+aodh_wsgi_threads: 1
+barbican_wsgi_processes: 2
+barbican_wsgi_threads: 1
+ceilometer_notification_workers: 1
+ceilometer_notification_workers_max: 2
+cinder_osapi_volume_workers_max: 2
+cinder_wsgi_buffer_size: 16384
+cinder_wsgi_processes_max: 2
+cinder_wsgi_threads: 1
+debug: true
+galera_innodb_buffer_pool_size: 16M
+galera_innodb_log_buffer_size: 4M
+galera_monitoring_allowed_source: 0.0.0.0/0
+galera_wsrep_provider_options:
+  - option: gcache.size
+    value: 4M
+glance_api_threads: 1
+glance_api_threads_max: 2
+glance_api_workers: 1
+glance_registry_workers: 1
+glance_wsgi_processes: 2
+glance_wsgi_processes_max: 2
+glance_wsgi_threads: 1
+gnocchi_wsgi_processes: 1
+gnocchi_wsgi_processes_max: 2
+gnocchi_wsgi_threads: 1
+heat_api_threads: 1
+heat_api_threads_max: 2
+heat_api_workers: 1
+heat_wsgi_buffer_size: 16384
+heat_wsgi_processes: 1
+heat_wsgi_processes_max: 2
+heat_wsgi_threads: 1
+horizon_wsgi_processes: 1
+horizon_wsgi_threads: 1
+horizon_wsgi_threads_max: 2
+install_method: source
+keystone_httpd_mpm_max_spare_threads: 2
+keystone_httpd_mpm_min_spare_threads: 1
+keystone_httpd_mpm_start_servers: 2
+keystone_httpd_mpm_thread_child: 1
+keystone_httpd_mpm_thread_limit: 2
+keystone_wsgi_processes_max: 2
+keystone_wsgi_threads: 1
+neutron_api_threads: 2
+neutron_api_threads_max: 2
+neutron_api_workers: 1
+neutron_metadata_workers: 1
+neutron_num_sync_threads: 1
+neutron_rpc_workers: 1
+nova_api_threads: 1
+nova_api_threads_max: 2
+nova_conductor_workers: 1
+nova_metadata_workers: 1
+nova_osapi_compute_workers: 1
+nova_scheduler_workers: 1
+nova_service_negate:
+  - nova-agent.service
+  - nova-resetnetwork.service
+nova_wsgi_buffer_size: 16384
+nova_wsgi_processes: 2
+nova_wsgi_processes_max: 2
+nova_wsgi_threads: 1
+repo_nginx_threads: 2
+

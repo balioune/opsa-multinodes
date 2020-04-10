@@ -7,17 +7,17 @@ if ! [ $# -eq 2 ]; then
 fi
 
 POOL=nfv
-POOL_PATH=/openstack
+POOL_PATH=/nfv
 
+#IMG_NAME=ubuntu-18.04-server-cloudimg-amd64.img
 IMG_NAME=ubuntu-16.04-server-cloudimg-amd64-disk1.img
-
 SERVER_NAME=$1
 RAM=$2
 
 ## Clone disk for the new server
 sudo virsh vol-clone --pool ${POOL} ${IMG_NAME} ${SERVER_NAME}.img
 
-sudo qemu-img resize /openstack/${SERVER_NAME}.img +150G
+sudo qemu-img resize /nfv/${SERVER_NAME}.img +100G
 
 ## SERVER
 
@@ -28,7 +28,7 @@ network-interfaces: |
 hostname: ${SERVER_NAME}
 local-hostname: ${SERVER_NAME}
 ssh_authorized_keys:
-   - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC729xMo967OoQea0/Hh3iaFlzijVntj5eVsMRJGROIt5gpHIEDEZ31V6Kz0AYcGyVlF7l6lZhUGE2clTlAFeTkpIZ1rRlnJI8dKyJS2uUzXsIdUWCDejpWqQNe3KXnC7szeolry+5pgmzVigmdzYqHkWdIy8m2a0JQ3z/eynQ6bgXaaYW19ZK1dZERImFiXb3jMvYkHPCjKvuV+Aq1PMBC6gt/Yb4mPjeN05QAwlJ8cEFuYC0X+HUgT5J14njcpoWV4mhSc3MPZEZO5DMn8F2PKZFgQHjfvLnzyAAV1BXNALOBBYBAODYlSehT5vwrPZhJE7HFtF+wam9a2p6tx1Dn ubuntuesgi@ubuntu1"
+   - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCmUqNtiJdPrw3+GPGFBE4GZBTHtx+Z68I/EVbljF9frbQ7wUZdWue8VSQfPw0X+NexXzwhzBrfOtZrqe51oSJX6TK3+VjB9Ht+xvW/WWOqvGzhFNmi5lRgxB6VmUHXl+Qul18dRDXg8+kA1Zx4vHSTBf34rg1OtKxmZbzLTrzq1RzwVaYNLvTp/2k9fVmeHnVdNUQLR//O+xI2eOAJud/OLtoWYu1VaBqWQfv18aBWGU4bGAonUKejk+zpHa3YBP3aKKjpDA1DejFDFzmFIdDTUNhcKPgbb8XBXaAYva0hHA16Ct6yHqYcvKCpxK9e/F75XvolYGGAKeAi/vP7oy6p root@ns3342362"
 
 
 USERDATA="#cloud-config

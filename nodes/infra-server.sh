@@ -7,9 +7,9 @@ if ! [ $# -eq 2 ]; then
 fi
 
 POOL=nfv
-POOL_PATH=/openstack
+POOL_PATH=/nfv
 
-IMG_NAME=ubuntu-16.04-server-cloudimg-amd64-disk1.img
+IMG_NAME=ubuntu-18.04-server-cloudimg-amd64.img
 
 SERVER_NAME=$1
 RAM=$2
@@ -17,18 +17,14 @@ RAM=$2
 ## Clone disk for the new server
 sudo virsh vol-clone --pool ${POOL} ${IMG_NAME} ${SERVER_NAME}.img
 
-sudo qemu-img resize /openstack/${SERVER_NAME}.img +200G
+sudo qemu-img resize /nfv/${SERVER_NAME}.img +200G
 
 ## SERVER
 
 METADATA="instance-id: iid-${SERVER_NAME};
-network-interfaces: |
+network-interfaces: | 
   auto ens3
   iface ens3 inet dhcp
-  auto ens4
-  iface ens4 inet static
-  address 192.168.2.102
-  netmask 255.255.255.0
 
 hostname: ${SERVER_NAME}
 local-hostname: ${SERVER_NAME}
@@ -69,9 +65,9 @@ sudo virsh pool-refresh $POOL
 
 sudo virt-install -r $RAM     \
   -n $SERVER_NAME     \
-  --vcpus=12    \
+  --vcpus=7    \
   --memballoon virtio    \
   --boot hd     \
-  --network network=default --network network=internalha  --network network=hostconnect  --network network=public \
+  --network network=default --network network=data  --network network=public \
   --disk vol=${POOL}/${SERVER_NAME}.img,format=qcow2,bus=virtio \
   --disk vol=${POOL}/${SERVER_NAME}.iso,bus=virtio 

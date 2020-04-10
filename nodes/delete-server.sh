@@ -8,7 +8,7 @@ if ! [ $# -eq 1 ]; then
 fi
 
 POOL=nfv
-POOL_PATH=/openstack
+POOL_PATH=/nfv
 
 IMG_NAME=ubuntu-14.04-server-cloudimg-amd64-disk1.img
 
@@ -17,9 +17,9 @@ SERVER_NAME=$1
 sudo virsh destroy $SERVER_NAME
 sudo virsh undefine $SERVER_NAME
 
-sudo rm /openstack/$SERVER_NAME.img
-sudo rm /openstack/$SERVER_NAME.iso
-sudo rm /openstack/${SERVER_NAME}-disk
+sudo rm /nfv/$SERVER_NAME.img
+sudo rm /nfv/$SERVER_NAME.iso
+sudo rm /nfv/${SERVER_NAME}-disk
 
 sudo virsh pool-refresh $POOL
 
