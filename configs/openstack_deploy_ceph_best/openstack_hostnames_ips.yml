@@ -1,0 +1,63 @@
+# This file is managed by openstack-ansible. No manual edits.
+{
+    "aio1": {
+        "ansible_host": "172.29.236.100",
+        "container_address": "172.29.236.100"
+    },
+    "aio1_ceph-mon_container-666bc902": {
+        "ansible_host": "172.29.237.146",
+        "container_address": "172.29.237.146"
+    },
+    "aio1_ceph-rgw_container-8a0471c5": {
+        "ansible_host": "172.29.237.248",
+        "container_address": "172.29.237.248"
+    },
+    "aio1_cinder_api_container-147f4038": {
+        "ansible_host": "172.29.237.196",
+        "container_address": "172.29.237.196"
+    },
+    "aio1_cinder_volumes_container-214cee64": {
+        "ansible_host": "172.29.239.113",
+        "container_address": "172.29.239.113"
+    },
+    "aio1_galera_container-3681566c": {
+        "ansible_host": "172.29.239.39",
+        "container_address": "172.29.239.39"
+    },
+    "aio1_glance_container-fd4c6577": {
+        "ansible_host": "172.29.237.31",
+        "container_address": "172.29.237.31"
+    },
+    "aio1_horizon_container-8d0198f0": {
+        "ansible_host": "172.29.238.5",
+        "container_address": "172.29.238.5"
+    },
+    "aio1_keystone_container-24633952": {
+        "ansible_host": "172.29.237.174",
+        "container_address": "172.29.237.174"
+    },
+    "aio1_memcached_container-5f54c5d9": {
+        "ansible_host": "172.29.238.127",
+        "container_address": "172.29.238.127"
+    },
+    "aio1_neutron_server_container-b2557e8f": {
+        "ansible_host": "172.29.239.133",
+        "container_address": "172.29.239.133"
+    },
+    "aio1_nova_api_container-bf4c8d6d": {
+        "ansible_host": "172.29.239.122",
+        "container_address": "172.29.239.122"
+    },
+    "aio1_rabbit_mq_container-f772bf77": {
+        "ansible_host": "172.29.237.151",
+        "container_address": "172.29.237.151"
+    },
+    "aio1_repo_container-24d25fe8": {
+        "ansible_host": "172.29.236.206",
+        "container_address": "172.29.236.206"
+    },
+    "aio1_utility_container-ec62b53d": {
+        "ansible_host": "172.29.239.224",
+        "container_address": "172.29.239.224"
+    }
+}

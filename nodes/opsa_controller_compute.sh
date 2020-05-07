@@ -19,6 +19,14 @@ sudo virsh vol-clone --pool ${POOL} ${IMG_NAME} ${SERVER_NAME}.img
 
 sudo qemu-img resize /nfv/${SERVER_NAME}.img +100G
 
+# Create disk
+sudo qemu-img create -f raw ${POOL_PATH}/${SERVER_NAME}-disk1 150
+# sudo qemu-img create -f raw ${POOL_PATH}/${SERVER_NAME}-disk2 80
+# sudo qemu-img create -f raw ${POOL_PATH}/${SERVER_NAME}-disk3 80
+
+sudo qemu-img resize /nfv/${SERVER_NAME}-disk1  +150G
+#sudo qemu-img resize /nfv/${SERVER_NAME}-disk2 +50G
+#sudo qemu-img resize /nfv/${SERVER_NAME}-disk3 +50G
 ## SERVER
 
 METADATA="instance-id: iid-${SERVER_NAME};
@@ -63,9 +71,10 @@ sudo virsh pool-refresh $POOL
 
 sudo virt-install -r $RAM     \
   -n $SERVER_NAME     \
-  --vcpus=8    \
+  --vcpus=5    \
   --memballoon virtio    \
   --boot hd     \
-  --network network=default  \
+  --network network=default  --network network=public  --network network=data \
   --disk vol=${POOL}/${SERVER_NAME}.img,format=qcow2,bus=virtio \
-  --disk vol=${POOL}/${SERVER_NAME}.iso,bus=virtio
+  --disk vol=${POOL}/${SERVER_NAME}.iso,bus=virtio \
+  --disk vol=${POOL}/${SERVER_NAME}-disk1,format=qcow2,bus=virtio

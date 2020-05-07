@@ -1,0 +1,2747 @@
+{
+    "_meta": {
+        "hostvars": {
+            "aio1": {
+                "ansible_host": "172.29.236.100",
+                "cinder_backends": {
+                    "lvm": {
+                        "extra_volume_types": [
+                            "low-iops",
+                            "high-iops",
+                            "ultra-high-iops"
+                        ],
+                        "iscsi_ip_address": "172.29.236.100",
+                        "lvm_type": "thin",
+                        "volume_backend_name": "LVM_iSCSI",
+                        "volume_driver": "cinder.volume.drivers.lvm.LVMVolumeDriver",
+                        "volume_group": "cinder-volumes"
+                    }
+                },
+                "cinder_qos_specs": [
+                    {
+                        "cinder_volume_types": [
+                            "low-iops"
+                        ],
+                        "name": "low-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 75,
+                            "write_iops_sec": 75
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "high-iops"
+                        ],
+                        "name": "high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 150,
+                            "write_iops_sec": 150
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "ultra-high-iops"
+                        ],
+                        "name": "ultra-high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 300,
+                            "write_iops_sec": 300
+                        }
+                    }
+                ],
+                "component": "nova_compute",
+                "container_address": "172.29.236.100",
+                "container_name": "aio1",
+                "container_networks": {
+                    "container_address": {
+                        "address": "172.29.236.100",
+                        "bridge": "br-mgmt",
+                        "netmask": "255.255.252.0",
+                        "static_routes": [
+                            {
+                                "cidr": "172.29.248.0/22",
+                                "gateway": "172.29.236.100"
+                            },
+                            {
+                                "cidr": "172.29.240.0/22",
+                                "gateway": "172.29.236.100"
+                            }
+                        ],
+                        "type": "veth"
+                    },
+                    "eth11_address": {
+                        "bridge": "br-vlan",
+                        "netmask": null,
+                        "type": "veth"
+                    },
+                    "eth12_address": {
+                        "bridge": "br-vlan",
+                        "netmask": null,
+                        "type": "veth"
+                    },
+                    "storage_address": {
+                        "bridge": "br-storage",
+                        "netmask": "255.255.252.0",
+                        "type": "veth"
+                    },
+                    "tunnel_address": {
+                        "bridge": "br-vxlan",
+                        "netmask": "255.255.252.0",
+                        "type": "veth"
+                    }
+                },
+                "container_tech": "lxc",
+                "container_types": "aio1-host_containers",
+                "is_metal": true,
+                "physical_host": "aio1",
+                "physical_host_group": "compute_hosts",
+                "properties": {
+                    "is_metal": true
+                }
+            },
+            "aio1_ceph-mon_container-666bc902": {
+                "ansible_host": "172.29.237.146",
+                "cinder_qos_specs": [
+                    {
+                        "cinder_volume_types": [
+                            "low-iops"
+                        ],
+                        "name": "low-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 75,
+                            "write_iops_sec": 75
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "high-iops"
+                        ],
+                        "name": "high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 150,
+                            "write_iops_sec": 150
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "ultra-high-iops"
+                        ],
+                        "name": "ultra-high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 300,
+                            "write_iops_sec": 300
+                        }
+                    }
+                ],
+                "component": "ceph-mon",
+                "container_address": "172.29.237.146",
+                "container_name": "aio1_ceph-mon_container-666bc902",
+                "container_networks": {
+                    "container_address": {
+                        "address": "172.29.237.146",
+                        "bridge": "br-mgmt",
+                        "interface": "eth1",
+                        "netmask": "255.255.252.0",
+                        "static_routes": [
+                            {
+                                "cidr": "172.29.248.0/22",
+                                "gateway": "172.29.236.100"
+                            },
+                            {
+                                "cidr": "172.29.240.0/22",
+                                "gateway": "172.29.236.100"
+                            }
+                        ],
+                        "type": "veth"
+                    }
+                },
+                "container_tech": "lxc",
+                "physical_host": "aio1",
+                "physical_host_group": "ceph-mon_hosts",
+                "properties": {}
+            },
+            "aio1_ceph-rgw_container-8a0471c5": {
+                "ansible_host": "172.29.237.248",
+                "cinder_qos_specs": [
+                    {
+                        "cinder_volume_types": [
+                            "low-iops"
+                        ],
+                        "name": "low-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 75,
+                            "write_iops_sec": 75
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "high-iops"
+                        ],
+                        "name": "high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 150,
+                            "write_iops_sec": 150
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "ultra-high-iops"
+                        ],
+                        "name": "ultra-high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 300,
+                            "write_iops_sec": 300
+                        }
+                    }
+                ],
+                "component": "ceph-rgw",
+                "container_address": "172.29.237.248",
+                "container_name": "aio1_ceph-rgw_container-8a0471c5",
+                "container_networks": {
+                    "container_address": {
+                        "address": "172.29.237.248",
+                        "bridge": "br-mgmt",
+                        "interface": "eth1",
+                        "netmask": "255.255.252.0",
+                        "static_routes": [
+                            {
+                                "cidr": "172.29.248.0/22",
+                                "gateway": "172.29.236.100"
+                            },
+                            {
+                                "cidr": "172.29.240.0/22",
+                                "gateway": "172.29.236.100"
+                            }
+                        ],
+                        "type": "veth"
+                    }
+                },
+                "container_tech": "lxc",
+                "physical_host": "aio1",
+                "physical_host_group": "ceph-rgw_hosts",
+                "properties": {}
+            },
+            "aio1_cinder_api_container-147f4038": {
+                "ansible_host": "172.29.237.196",
+                "cinder_qos_specs": [
+                    {
+                        "cinder_volume_types": [
+                            "low-iops"
+                        ],
+                        "name": "low-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 75,
+                            "write_iops_sec": 75
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "high-iops"
+                        ],
+                        "name": "high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 150,
+                            "write_iops_sec": 150
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "ultra-high-iops"
+                        ],
+                        "name": "ultra-high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 300,
+                            "write_iops_sec": 300
+                        }
+                    }
+                ],
+                "component": "cinder_api",
+                "container_address": "172.29.237.196",
+                "container_name": "aio1_cinder_api_container-147f4038",
+                "container_networks": {
+                    "container_address": {
+                        "address": "172.29.237.196",
+                        "bridge": "br-mgmt",
+                        "interface": "eth1",
+                        "netmask": "255.255.252.0",
+                        "static_routes": [
+                            {
+                                "cidr": "172.29.248.0/22",
+                                "gateway": "172.29.236.100"
+                            },
+                            {
+                                "cidr": "172.29.240.0/22",
+                                "gateway": "172.29.236.100"
+                            }
+                        ],
+                        "type": "veth"
+                    },
+                    "storage_address": {
+                        "address": "172.29.247.30",
+                        "bridge": "br-storage",
+                        "interface": "eth2",
+                        "netmask": "255.255.252.0",
+                        "type": "veth"
+                    }
+                },
+                "container_tech": "lxc",
+                "physical_host": "aio1",
+                "physical_host_group": "storage-infra_hosts",
+                "properties": {}
+            },
+            "aio1_cinder_volumes_container-214cee64": {
+                "ansible_host": "172.29.239.113",
+                "cinder_backends": {
+                    "lvm": {
+                        "extra_volume_types": [
+                            "low-iops",
+                            "high-iops",
+                            "ultra-high-iops"
+                        ],
+                        "iscsi_ip_address": "172.29.236.100",
+                        "lvm_type": "thin",
+                        "volume_backend_name": "LVM_iSCSI",
+                        "volume_driver": "cinder.volume.drivers.lvm.LVMVolumeDriver",
+                        "volume_group": "cinder-volumes"
+                    }
+                },
+                "cinder_qos_specs": [
+                    {
+                        "cinder_volume_types": [
+                            "low-iops"
+                        ],
+                        "name": "low-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 75,
+                            "write_iops_sec": 75
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "high-iops"
+                        ],
+                        "name": "high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 150,
+                            "write_iops_sec": 150
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "ultra-high-iops"
+                        ],
+                        "name": "ultra-high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 300,
+                            "write_iops_sec": 300
+                        }
+                    }
+                ],
+                "component": "cinder_volume",
+                "container_address": "172.29.239.113",
+                "container_name": "aio1_cinder_volumes_container-214cee64",
+                "container_networks": {
+                    "container_address": {
+                        "address": "172.29.239.113",
+                        "bridge": "br-mgmt",
+                        "interface": "eth1",
+                        "netmask": "255.255.252.0",
+                        "static_routes": [
+                            {
+                                "cidr": "172.29.248.0/22",
+                                "gateway": "172.29.236.100"
+                            },
+                            {
+                                "cidr": "172.29.240.0/22",
+                                "gateway": "172.29.236.100"
+                            }
+                        ],
+                        "type": "veth"
+                    },
+                    "storage_address": {
+                        "address": "172.29.245.227",
+                        "bridge": "br-storage",
+                        "interface": "eth2",
+                        "netmask": "255.255.252.0",
+                        "type": "veth"
+                    }
+                },
+                "container_tech": "lxc",
+                "physical_host": "aio1",
+                "physical_host_group": "storage_hosts",
+                "properties": {
+                    "is_metal": false
+                }
+            },
+            "aio1_galera_container-3681566c": {
+                "ansible_host": "172.29.239.39",
+                "cinder_qos_specs": [
+                    {
+                        "cinder_volume_types": [
+                            "low-iops"
+                        ],
+                        "name": "low-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 75,
+                            "write_iops_sec": 75
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "high-iops"
+                        ],
+                        "name": "high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 150,
+                            "write_iops_sec": 150
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "ultra-high-iops"
+                        ],
+                        "name": "ultra-high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 300,
+                            "write_iops_sec": 300
+                        }
+                    }
+                ],
+                "component": "galera",
+                "container_address": "172.29.239.39",
+                "container_name": "aio1_galera_container-3681566c",
+                "container_networks": {
+                    "container_address": {
+                        "address": "172.29.239.39",
+                        "bridge": "br-mgmt",
+                        "interface": "eth1",
+                        "netmask": "255.255.252.0",
+                        "static_routes": [
+                            {
+                                "cidr": "172.29.248.0/22",
+                                "gateway": "172.29.236.100"
+                            },
+                            {
+                                "cidr": "172.29.240.0/22",
+                                "gateway": "172.29.236.100"
+                            }
+                        ],
+                        "type": "veth"
+                    }
+                },
+                "container_tech": "lxc",
+                "physical_host": "aio1",
+                "physical_host_group": "shared-infra_hosts",
+                "properties": {}
+            },
+            "aio1_glance_container-fd4c6577": {
+                "ansible_host": "172.29.237.31",
+                "cinder_qos_specs": [
+                    {
+                        "cinder_volume_types": [
+                            "low-iops"
+                        ],
+                        "name": "low-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 75,
+                            "write_iops_sec": 75
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "high-iops"
+                        ],
+                        "name": "high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 150,
+                            "write_iops_sec": 150
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "ultra-high-iops"
+                        ],
+                        "name": "ultra-high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 300,
+                            "write_iops_sec": 300
+                        }
+                    }
+                ],
+                "component": "glance_api",
+                "container_address": "172.29.237.31",
+                "container_name": "aio1_glance_container-fd4c6577",
+                "container_networks": {
+                    "container_address": {
+                        "address": "172.29.237.31",
+                        "bridge": "br-mgmt",
+                        "interface": "eth1",
+                        "netmask": "255.255.252.0",
+                        "static_routes": [
+                            {
+                                "cidr": "172.29.248.0/22",
+                                "gateway": "172.29.236.100"
+                            },
+                            {
+                                "cidr": "172.29.240.0/22",
+                                "gateway": "172.29.236.100"
+                            }
+                        ],
+                        "type": "veth"
+                    },
+                    "storage_address": {
+                        "address": "172.29.246.92",
+                        "bridge": "br-storage",
+                        "interface": "eth2",
+                        "netmask": "255.255.252.0",
+                        "type": "veth"
+                    }
+                },
+                "container_tech": "lxc",
+                "physical_host": "aio1",
+                "physical_host_group": "image_hosts",
+                "properties": {
+                    "container_fs_size": "12G"
+                }
+            },
+            "aio1_horizon_container-8d0198f0": {
+                "ansible_host": "172.29.238.5",
+                "cinder_qos_specs": [
+                    {
+                        "cinder_volume_types": [
+                            "low-iops"
+                        ],
+                        "name": "low-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 75,
+                            "write_iops_sec": 75
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "high-iops"
+                        ],
+                        "name": "high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 150,
+                            "write_iops_sec": 150
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "ultra-high-iops"
+                        ],
+                        "name": "ultra-high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 300,
+                            "write_iops_sec": 300
+                        }
+                    }
+                ],
+                "component": "horizon",
+                "container_address": "172.29.238.5",
+                "container_name": "aio1_horizon_container-8d0198f0",
+                "container_networks": {
+                    "container_address": {
+                        "address": "172.29.238.5",
+                        "bridge": "br-mgmt",
+                        "interface": "eth1",
+                        "netmask": "255.255.252.0",
+                        "static_routes": [
+                            {
+                                "cidr": "172.29.248.0/22",
+                                "gateway": "172.29.236.100"
+                            },
+                            {
+                                "cidr": "172.29.240.0/22",
+                                "gateway": "172.29.236.100"
+                            }
+                        ],
+                        "type": "veth"
+                    }
+                },
+                "container_tech": "lxc",
+                "physical_host": "aio1",
+                "physical_host_group": "dashboard_hosts",
+                "properties": {}
+            },
+            "aio1_keystone_container-24633952": {
+                "ansible_host": "172.29.237.174",
+                "cinder_qos_specs": [
+                    {
+                        "cinder_volume_types": [
+                            "low-iops"
+                        ],
+                        "name": "low-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 75,
+                            "write_iops_sec": 75
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "high-iops"
+                        ],
+                        "name": "high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 150,
+                            "write_iops_sec": 150
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "ultra-high-iops"
+                        ],
+                        "name": "ultra-high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 300,
+                            "write_iops_sec": 300
+                        }
+                    }
+                ],
+                "component": "keystone",
+                "container_address": "172.29.237.174",
+                "container_name": "aio1_keystone_container-24633952",
+                "container_networks": {
+                    "container_address": {
+                        "address": "172.29.237.174",
+                        "bridge": "br-mgmt",
+                        "interface": "eth1",
+                        "netmask": "255.255.252.0",
+                        "static_routes": [
+                            {
+                                "cidr": "172.29.248.0/22",
+                                "gateway": "172.29.236.100"
+                            },
+                            {
+                                "cidr": "172.29.240.0/22",
+                                "gateway": "172.29.236.100"
+                            }
+                        ],
+                        "type": "veth"
+                    }
+                },
+                "container_tech": "lxc",
+                "physical_host": "aio1",
+                "physical_host_group": "identity_hosts",
+                "properties": {}
+            },
+            "aio1_memcached_container-5f54c5d9": {
+                "ansible_host": "172.29.238.127",
+                "cinder_qos_specs": [
+                    {
+                        "cinder_volume_types": [
+                            "low-iops"
+                        ],
+                        "name": "low-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 75,
+                            "write_iops_sec": 75
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "high-iops"
+                        ],
+                        "name": "high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 150,
+                            "write_iops_sec": 150
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "ultra-high-iops"
+                        ],
+                        "name": "ultra-high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 300,
+                            "write_iops_sec": 300
+                        }
+                    }
+                ],
+                "component": "memcached",
+                "container_address": "172.29.238.127",
+                "container_name": "aio1_memcached_container-5f54c5d9",
+                "container_networks": {
+                    "container_address": {
+                        "address": "172.29.238.127",
+                        "bridge": "br-mgmt",
+                        "interface": "eth1",
+                        "netmask": "255.255.252.0",
+                        "static_routes": [
+                            {
+                                "cidr": "172.29.248.0/22",
+                                "gateway": "172.29.236.100"
+                            },
+                            {
+                                "cidr": "172.29.240.0/22",
+                                "gateway": "172.29.236.100"
+                            }
+                        ],
+                        "type": "veth"
+                    }
+                },
+                "container_tech": "lxc",
+                "physical_host": "aio1",
+                "physical_host_group": "shared-infra_hosts",
+                "properties": {}
+            },
+            "aio1_neutron_server_container-b2557e8f": {
+                "ansible_host": "172.29.239.133",
+                "cinder_qos_specs": [
+                    {
+                        "cinder_volume_types": [
+                            "low-iops"
+                        ],
+                        "name": "low-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 75,
+                            "write_iops_sec": 75
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "high-iops"
+                        ],
+                        "name": "high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 150,
+                            "write_iops_sec": 150
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "ultra-high-iops"
+                        ],
+                        "name": "ultra-high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 300,
+                            "write_iops_sec": 300
+                        }
+                    }
+                ],
+                "component": "neutron_server",
+                "container_address": "172.29.239.133",
+                "container_name": "aio1_neutron_server_container-b2557e8f",
+                "container_networks": {
+                    "container_address": {
+                        "address": "172.29.239.133",
+                        "bridge": "br-mgmt",
+                        "interface": "eth1",
+                        "netmask": "255.255.252.0",
+                        "static_routes": [
+                            {
+                                "cidr": "172.29.248.0/22",
+                                "gateway": "172.29.236.100"
+                            },
+                            {
+                                "cidr": "172.29.240.0/22",
+                                "gateway": "172.29.236.100"
+                            }
+                        ],
+                        "type": "veth"
+                    }
+                },
+                "container_tech": "lxc",
+                "physical_host": "aio1",
+                "physical_host_group": "network_hosts",
+                "properties": {}
+            },
+            "aio1_nova_api_container-bf4c8d6d": {
+                "ansible_host": "172.29.239.122",
+                "cinder_qos_specs": [
+                    {
+                        "cinder_volume_types": [
+                            "low-iops"
+                        ],
+                        "name": "low-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 75,
+                            "write_iops_sec": 75
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "high-iops"
+                        ],
+                        "name": "high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 150,
+                            "write_iops_sec": 150
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "ultra-high-iops"
+                        ],
+                        "name": "ultra-high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 300,
+                            "write_iops_sec": 300
+                        }
+                    }
+                ],
+                "component": "nova_api_metadata",
+                "container_address": "172.29.239.122",
+                "container_name": "aio1_nova_api_container-bf4c8d6d",
+                "container_networks": {
+                    "container_address": {
+                        "address": "172.29.239.122",
+                        "bridge": "br-mgmt",
+                        "interface": "eth1",
+                        "netmask": "255.255.252.0",
+                        "static_routes": [
+                            {
+                                "cidr": "172.29.248.0/22",
+                                "gateway": "172.29.236.100"
+                            },
+                            {
+                                "cidr": "172.29.240.0/22",
+                                "gateway": "172.29.236.100"
+                            }
+                        ],
+                        "type": "veth"
+                    }
+                },
+                "container_tech": "lxc",
+                "physical_host": "aio1",
+                "physical_host_group": "compute-infra_hosts",
+                "properties": {}
+            },
+            "aio1_rabbit_mq_container-f772bf77": {
+                "ansible_host": "172.29.237.151",
+                "cinder_qos_specs": [
+                    {
+                        "cinder_volume_types": [
+                            "low-iops"
+                        ],
+                        "name": "low-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 75,
+                            "write_iops_sec": 75
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "high-iops"
+                        ],
+                        "name": "high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 150,
+                            "write_iops_sec": 150
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "ultra-high-iops"
+                        ],
+                        "name": "ultra-high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 300,
+                            "write_iops_sec": 300
+                        }
+                    }
+                ],
+                "component": "rabbitmq",
+                "container_address": "172.29.237.151",
+                "container_name": "aio1_rabbit_mq_container-f772bf77",
+                "container_networks": {
+                    "container_address": {
+                        "address": "172.29.237.151",
+                        "bridge": "br-mgmt",
+                        "interface": "eth1",
+                        "netmask": "255.255.252.0",
+                        "static_routes": [
+                            {
+                                "cidr": "172.29.248.0/22",
+                                "gateway": "172.29.236.100"
+                            },
+                            {
+                                "cidr": "172.29.240.0/22",
+                                "gateway": "172.29.236.100"
+                            }
+                        ],
+                        "type": "veth"
+                    }
+                },
+                "container_tech": "lxc",
+                "physical_host": "aio1",
+                "physical_host_group": "shared-infra_hosts",
+                "properties": {}
+            },
+            "aio1_repo_container-24d25fe8": {
+                "ansible_host": "172.29.236.206",
+                "cinder_qos_specs": [
+                    {
+                        "cinder_volume_types": [
+                            "low-iops"
+                        ],
+                        "name": "low-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 75,
+                            "write_iops_sec": 75
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "high-iops"
+                        ],
+                        "name": "high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 150,
+                            "write_iops_sec": 150
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "ultra-high-iops"
+                        ],
+                        "name": "ultra-high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 300,
+                            "write_iops_sec": 300
+                        }
+                    }
+                ],
+                "component": "pkg_repo",
+                "container_address": "172.29.236.206",
+                "container_name": "aio1_repo_container-24d25fe8",
+                "container_networks": {
+                    "container_address": {
+                        "address": "172.29.236.206",
+                        "bridge": "br-mgmt",
+                        "interface": "eth1",
+                        "netmask": "255.255.252.0",
+                        "static_routes": [
+                            {
+                                "cidr": "172.29.248.0/22",
+                                "gateway": "172.29.236.100"
+                            },
+                            {
+                                "cidr": "172.29.240.0/22",
+                                "gateway": "172.29.236.100"
+                            }
+                        ],
+                        "type": "veth"
+                    }
+                },
+                "container_tech": "lxc",
+                "physical_host": "aio1",
+                "physical_host_group": "repo-infra_hosts",
+                "properties": {}
+            },
+            "aio1_utility_container-ec62b53d": {
+                "ansible_host": "172.29.239.224",
+                "cinder_qos_specs": [
+                    {
+                        "cinder_volume_types": [
+                            "low-iops"
+                        ],
+                        "name": "low-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 75,
+                            "write_iops_sec": 75
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "high-iops"
+                        ],
+                        "name": "high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 150,
+                            "write_iops_sec": 150
+                        }
+                    },
+                    {
+                        "cinder_volume_types": [
+                            "ultra-high-iops"
+                        ],
+                        "name": "ultra-high-iops",
+                        "options": {
+                            "consumer": "front-end",
+                            "read_iops_sec": 300,
+                            "write_iops_sec": 300
+                        }
+                    }
+                ],
+                "component": "utility",
+                "container_address": "172.29.239.224",
+                "container_name": "aio1_utility_container-ec62b53d",
+                "container_networks": {
+                    "container_address": {
+                        "address": "172.29.239.224",
+                        "bridge": "br-mgmt",
+                        "interface": "eth1",
+                        "netmask": "255.255.252.0",
+                        "static_routes": [
+                            {
+                                "cidr": "172.29.248.0/22",
+                                "gateway": "172.29.236.100"
+                            },
+                            {
+                                "cidr": "172.29.240.0/22",
+                                "gateway": "172.29.236.100"
+                            }
+                        ],
+                        "type": "veth"
+                    }
+                },
+                "container_tech": "lxc",
+                "physical_host": "aio1",
+                "physical_host_group": "shared-infra_hosts",
+                "properties": {}
+            }
+        }
+    },
+    "aio1-host_containers": {
+        "hosts": [
+            "aio1_horizon_container-8d0198f0",
+            "aio1_utility_container-ec62b53d",
+            "aio1_keystone_container-24633952",
+            "aio1_neutron_server_container-b2557e8f",
+            "aio1_repo_container-24d25fe8",
+            "aio1_glance_container-fd4c6577",
+            "aio1_memcached_container-5f54c5d9",
+            "aio1_cinder_api_container-147f4038",
+            "aio1_galera_container-3681566c",
+            "aio1_nova_api_container-bf4c8d6d",
+            "aio1_rabbit_mq_container-f772bf77",
+            "aio1_cinder_volumes_container-214cee64",
+            "aio1_ceph-mon_container-666bc902",
+            "aio1_ceph-rgw_container-8a0471c5"
+        ]
+    },
+    "all": {
+        "vars": {
+            "container_cidr": "172.29.236.0/22",
+            "external_lb_vip_address": "192.168.122.60",
+            "internal_lb_vip_address": "172.29.236.100",
+            "management_bridge": "br-mgmt",
+            "provider_networks": [
+                {
+                    "network": {
+                        "container_bridge": "br-mgmt",
+                        "container_interface": "eth1",
+                        "container_type": "veth",
+                        "group_binds": [
+                            "all_containers",
+                            "hosts"
+                        ],
+                        "ip_from_q": "container",
+                        "is_container_address": true,
+                        "static_routes": [
+                            {
+                                "cidr": "172.29.248.0/22",
+                                "gateway": "172.29.236.100"
+                            },
+                            {
+                                "cidr": "172.29.240.0/22",
+                                "gateway": "172.29.236.100"
+                            }
+                        ],
+                        "type": "raw"
+                    }
+                },
+                {
+                    "network": {
+                        "container_bridge": "br-vxlan",
+                        "container_interface": "eth10",
+                        "container_type": "veth",
+                        "group_binds": [
+                            "neutron_linuxbridge_agent"
+                        ],
+                        "ip_from_q": "tunnel",
+                        "net_name": "vxlan",
+                        "range": "1:1000",
+                        "type": "vxlan"
+                    }
+                },
+                {
+                    "network": {
+                        "container_bridge": "br-vlan",
+                        "container_interface": "eth12",
+                        "container_type": "veth",
+                        "group_binds": [
+                            "neutron_linuxbridge_agent"
+                        ],
+                        "host_bind_override": "eth12",
+                        "net_name": "flat",
+                        "type": "flat"
+                    }
+                },
+                {
+                    "network": {
+                        "container_bridge": "br-vlan",
+                        "container_interface": "eth11",
+                        "container_type": "veth",
+                        "group_binds": [
+                            "neutron_linuxbridge_agent"
+                        ],
+                        "net_name": "vlan",
+                        "range": "101:200,301:400",
+                        "type": "vlan"
+                    }
+                },
+                {
+                    "network": {
+                        "container_bridge": "br-storage",
+                        "container_interface": "eth2",
+                        "container_type": "veth",
+                        "group_binds": [
+                            "glance_api",
+                            "cinder_api",
+                            "cinder_volume",
+                            "nova_compute",
+                            "swift_proxy"
+                        ],
+                        "ip_from_q": "storage",
+                        "type": "raw"
+                    }
+                }
+            ]
+        }
+    },
+    "all_containers": {
+        "children": [
+            "swift-proxy_containers",
+            "trove-infra_containers",
+            "reservation_containers",
+            "image_containers",
+            "storage-infra_containers",
+            "policy_containers",
+            "manila-data_containers",
+            "mistral-infra_containers",
+            "powervm-compute_containers",
+            "swift_containers",
+            "qemu-compute_containers",
+            "operator_containers",
+            "memcaching_containers",
+            "mq_containers",
+            "magnum-infra_containers",
+            "network_containers",
+            "os-infra_containers",
+            "compute-infra_containers",
+            "dnsaas_containers",
+            "database_containers",
+            "metrics_containers",
+            "unbound_containers",
+            "mano_containers",
+            "storage_containers",
+            "ceph-osd_containers",
+            "haproxy_containers",
+            "orchestration_containers",
+            "manila-infra_containers",
+            "lxd-compute_containers",
+            "ceph-mon_containers",
+            "octavia-infra_containers",
+            "sahara-infra_containers",
+            "kvm-compute_containers",
+            "masakari-monitor_containers",
+            "log_containers",
+            "identity_containers",
+            "event-infra_containers",
+            "repo-infra_containers",
+            "metering-infra_containers",
+            "masakari-infra_containers",
+            "ironic-infra_containers",
+            "metering-alarm_containers",
+            "ironic-server_containers",
+            "compute_containers",
+            "key-manager_containers",
+            "shared-infra_containers",
+            "ceph-rgw_containers",
+            "etcd_containers",
+            "ironic-compute_containers",
+            "metering-compute_containers",
+            "oslomsg-rpc_containers",
+            "dashboard_containers"
+        ],
+        "hosts": []
+    },
+    "aodh_alarm_evaluator": {
+        "children": [],
+        "hosts": []
+    },
+    "aodh_alarm_notifier": {
+        "children": [],
+        "hosts": []
+    },
+    "aodh_all": {
+        "children": [
+            "aodh_api",
+            "aodh_alarm_notifier",
+            "aodh_alarm_evaluator",
+            "aodh_listener"
+        ],
+        "hosts": []
+    },
+    "aodh_api": {
+        "children": [],
+        "hosts": []
+    },
+    "aodh_container": {
+        "hosts": []
+    },
+    "aodh_listener": {
+        "children": [],
+        "hosts": []
+    },
+    "barbican_all": {
+        "children": [
+            "barbican_api"
+        ],
+        "hosts": []
+    },
+    "barbican_api": {
+        "children": [],
+        "hosts": []
+    },
+    "barbican_container": {
+        "hosts": []
+    },
+    "blazar_all": {
+        "children": [
+            "blazar_manager",
+            "blazar_api"
+        ],
+        "hosts": []
+    },
+    "blazar_api": {
+        "children": [],
+        "hosts": []
+    },
+    "blazar_container": {
+        "hosts": []
+    },
+    "blazar_manager": {
+        "children": [],
+        "hosts": []
+    },
+    "ceilometer_agent_central": {
+        "children": [],
+        "hosts": []
+    },
+    "ceilometer_agent_compute": {
+        "children": [],
+        "hosts": []
+    },
+    "ceilometer_agent_notification": {
+        "children": [],
+        "hosts": []
+    },
+    "ceilometer_all": {
+        "children": [
+            "ceilometer_agent_notification",
+            "ceilometer_agent_compute",
+            "ceilometer_agent_central"
+        ],
+        "hosts": []
+    },
+    "ceilometer_central_container": {
+        "hosts": []
+    },
+    "ceph-mon": {
+        "children": [],
+        "hosts": [
+            "aio1_ceph-mon_container-666bc902"
+        ]
+    },
+    "ceph-mon_all": {
+        "hosts": [
+            "aio1",
+            "aio1_ceph-mon_container-666bc902"
+        ]
+    },
+    "ceph-mon_container": {
+        "hosts": [
+            "aio1_ceph-mon_container-666bc902"
+        ]
+    },
+    "ceph-mon_containers": {
+        "children": [
+            "aio1-host_containers"
+        ],
+        "hosts": []
+    },
+    "ceph-mon_hosts": {
+        "children": [],
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "ceph-osd": {
+        "children": [],
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "ceph-osd_all": {
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "ceph-osd_container": {
+        "hosts": []
+    },
+    "ceph-osd_containers": {
+        "children": [
+            "aio1-host_containers"
+        ],
+        "hosts": []
+    },
+    "ceph-osd_hosts": {
+        "children": [],
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "ceph-rgw": {
+        "children": [],
+        "hosts": [
+            "aio1_ceph-rgw_container-8a0471c5"
+        ]
+    },
+    "ceph-rgw_all": {
+        "hosts": [
+            "aio1",
+            "aio1_ceph-rgw_container-8a0471c5"
+        ]
+    },
+    "ceph-rgw_container": {
+        "hosts": [
+            "aio1_ceph-rgw_container-8a0471c5"
+        ]
+    },
+    "ceph-rgw_containers": {
+        "children": [
+            "aio1-host_containers"
+        ],
+        "hosts": []
+    },
+    "ceph-rgw_hosts": {
+        "children": [],
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "ceph_all": {
+        "children": [
+            "ceph-mon",
+            "ceph-rgw",
+            "ceph-osd"
+        ],
+        "hosts": []
+    },
+    "cinder_all": {
+        "children": [
+            "cinder_api",
+            "cinder_backup",
+            "cinder_volume",
+            "cinder_scheduler"
+        ],
+        "hosts": []
+    },
+    "cinder_api": {
+        "children": [],
+        "hosts": [
+            "aio1_cinder_api_container-147f4038"
+        ]
+    },
+    "cinder_api_container": {
+        "hosts": [
+            "aio1_cinder_api_container-147f4038"
+        ]
+    },
+    "cinder_backup": {
+        "children": [],
+        "hosts": [
+            "aio1",
+            "aio1_cinder_volumes_container-214cee64"
+        ]
+    },
+    "cinder_scheduler": {
+        "children": [],
+        "hosts": [
+            "aio1_cinder_api_container-147f4038"
+        ]
+    },
+    "cinder_volume": {
+        "children": [],
+        "hosts": [
+            "aio1",
+            "aio1_cinder_volumes_container-214cee64"
+        ]
+    },
+    "cinder_volumes_container": {
+        "hosts": [
+            "aio1_cinder_volumes_container-214cee64"
+        ]
+    },
+    "compute-infra_all": {
+        "hosts": [
+            "aio1",
+            "aio1_nova_api_container-bf4c8d6d"
+        ]
+    },
+    "compute-infra_containers": {
+        "children": [
+            "aio1-host_containers"
+        ],
+        "hosts": []
+    },
+    "compute-infra_hosts": {
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "compute_all": {
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "compute_containers": {
+        "children": [
+            "aio1-host_containers"
+        ],
+        "hosts": []
+    },
+    "compute_hosts": {
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "congress_all": {
+        "children": [
+            "congress_server"
+        ],
+        "hosts": []
+    },
+    "congress_container": {
+        "hosts": []
+    },
+    "congress_server": {
+        "children": [],
+        "hosts": []
+    },
+    "dashboard_all": {
+        "hosts": [
+            "aio1_horizon_container-8d0198f0",
+            "aio1"
+        ]
+    },
+    "dashboard_containers": {
+        "children": [
+            "aio1-host_containers"
+        ],
+        "hosts": []
+    },
+    "dashboard_hosts": {
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "database_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "database_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "designate_all": {
+        "children": [
+            "designate_mdns",
+            "designate_worker",
+            "designate_sink",
+            "designate_producer",
+            "designate_central",
+            "designate_api"
+        ],
+        "hosts": []
+    },
+    "designate_api": {
+        "children": [],
+        "hosts": []
+    },
+    "designate_central": {
+        "children": [],
+        "hosts": []
+    },
+    "designate_container": {
+        "hosts": []
+    },
+    "designate_mdns": {
+        "children": [],
+        "hosts": []
+    },
+    "designate_producer": {
+        "children": [],
+        "hosts": []
+    },
+    "designate_sink": {
+        "children": [],
+        "hosts": []
+    },
+    "designate_worker": {
+        "children": [],
+        "hosts": []
+    },
+    "dnsaas_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "dnsaas_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "etcd": {
+        "children": [],
+        "hosts": []
+    },
+    "etcd_all": {
+        "children": [
+            "etcd"
+        ],
+        "hosts": []
+    },
+    "etcd_container": {
+        "hosts": []
+    },
+    "etcd_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "etcd_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "event-infra_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "event-infra_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "galera": {
+        "children": [],
+        "hosts": [
+            "aio1_galera_container-3681566c"
+        ]
+    },
+    "galera_all": {
+        "children": [
+            "galera"
+        ],
+        "hosts": []
+    },
+    "galera_container": {
+        "hosts": [
+            "aio1_galera_container-3681566c"
+        ]
+    },
+    "glance_all": {
+        "children": [
+            "glance_registry",
+            "glance_api"
+        ],
+        "hosts": []
+    },
+    "glance_api": {
+        "children": [],
+        "hosts": [
+            "aio1_glance_container-fd4c6577"
+        ]
+    },
+    "glance_container": {
+        "hosts": [
+            "aio1_glance_container-fd4c6577"
+        ]
+    },
+    "glance_registry": {
+        "children": [],
+        "hosts": [
+            "aio1_glance_container-fd4c6577"
+        ]
+    },
+    "gnocchi_all": {
+        "children": [
+            "gnocchi_metricd",
+            "gnocchi_api"
+        ],
+        "hosts": []
+    },
+    "gnocchi_api": {
+        "children": [],
+        "hosts": []
+    },
+    "gnocchi_container": {
+        "hosts": []
+    },
+    "gnocchi_metricd": {
+        "children": [],
+        "hosts": []
+    },
+    "haproxy": {
+        "children": [],
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "haproxy_all": {
+        "children": [
+            "haproxy"
+        ],
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "haproxy_container": {
+        "hosts": []
+    },
+    "haproxy_containers": {
+        "children": [
+            "aio1-host_containers"
+        ],
+        "hosts": []
+    },
+    "haproxy_hosts": {
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "heat_all": {
+        "children": [
+            "heat_api_cfn",
+            "heat_api",
+            "heat_engine"
+        ],
+        "hosts": []
+    },
+    "heat_api": {
+        "children": [],
+        "hosts": []
+    },
+    "heat_api_cfn": {
+        "children": [],
+        "hosts": []
+    },
+    "heat_api_container": {
+        "hosts": []
+    },
+    "heat_engine": {
+        "children": [],
+        "hosts": []
+    },
+    "horizon": {
+        "children": [],
+        "hosts": [
+            "aio1_horizon_container-8d0198f0"
+        ]
+    },
+    "horizon_all": {
+        "children": [
+            "horizon"
+        ],
+        "hosts": []
+    },
+    "horizon_container": {
+        "hosts": [
+            "aio1_horizon_container-8d0198f0"
+        ]
+    },
+    "hosts": {
+        "children": [
+            "oslomsg-rpc_hosts",
+            "ironic-compute_hosts",
+            "kvm-compute_hosts",
+            "compute_hosts",
+            "haproxy_hosts",
+            "metering-alarm_hosts",
+            "masakari-monitor_hosts",
+            "repo-infra_hosts",
+            "powervm-compute_hosts",
+            "magnum-infra_hosts",
+            "dashboard_hosts",
+            "mistral-infra_hosts",
+            "trove-infra_hosts",
+            "image_hosts",
+            "os-infra_hosts",
+            "dnsaas_hosts",
+            "ceph-osd_hosts",
+            "swift-proxy_hosts",
+            "compute-infra_hosts",
+            "ceph-mon_hosts",
+            "manila-data_hosts",
+            "swift_hosts",
+            "policy_hosts",
+            "masakari-infra_hosts",
+            "manila-infra_hosts",
+            "event-infra_hosts",
+            "ironic-infra_hosts",
+            "metrics_hosts",
+            "storage-infra_hosts",
+            "operator_hosts",
+            "octavia-infra_hosts",
+            "unbound_hosts",
+            "qemu-compute_hosts",
+            "ironic-server_hosts",
+            "reservation_hosts",
+            "key-manager_hosts",
+            "log_hosts",
+            "etcd_hosts",
+            "database_hosts",
+            "ceph-rgw_hosts",
+            "metering-compute_hosts",
+            "shared-infra_hosts",
+            "memcaching_hosts",
+            "storage_hosts",
+            "metering-infra_hosts",
+            "network_hosts",
+            "mq_hosts",
+            "orchestration_hosts",
+            "identity_hosts",
+            "sahara-infra_hosts",
+            "mano_hosts",
+            "lxd-compute_hosts"
+        ],
+        "hosts": []
+    },
+    "identity_all": {
+        "hosts": [
+            "aio1_keystone_container-24633952",
+            "aio1"
+        ]
+    },
+    "identity_containers": {
+        "children": [
+            "aio1-host_containers"
+        ],
+        "hosts": []
+    },
+    "identity_hosts": {
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "image_all": {
+        "hosts": [
+            "aio1_glance_container-fd4c6577",
+            "aio1"
+        ]
+    },
+    "image_containers": {
+        "children": [
+            "aio1-host_containers"
+        ],
+        "hosts": []
+    },
+    "image_hosts": {
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "ironic-compute_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "ironic-compute_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "ironic-infra_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "ironic-infra_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "ironic-server_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "ironic-server_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "ironic_all": {
+        "children": [
+            "ironic_api",
+            "ironic_server",
+            "ironic_conductor"
+        ],
+        "hosts": []
+    },
+    "ironic_api": {
+        "children": [],
+        "hosts": []
+    },
+    "ironic_api_container": {
+        "hosts": []
+    },
+    "ironic_compute": {
+        "children": [],
+        "hosts": []
+    },
+    "ironic_compute_container": {
+        "hosts": []
+    },
+    "ironic_conductor": {
+        "children": [],
+        "hosts": []
+    },
+    "ironic_server": {
+        "children": [],
+        "hosts": []
+    },
+    "ironic_server_container": {
+        "hosts": []
+    },
+    "ironic_servers": {
+        "children": [
+            "ironic_server"
+        ],
+        "hosts": []
+    },
+    "key-manager_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "key-manager_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "keystone": {
+        "children": [],
+        "hosts": [
+            "aio1_keystone_container-24633952"
+        ]
+    },
+    "keystone_all": {
+        "children": [
+            "keystone"
+        ],
+        "hosts": []
+    },
+    "keystone_container": {
+        "hosts": [
+            "aio1_keystone_container-24633952"
+        ]
+    },
+    "kvm-compute_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "kvm-compute_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "log_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "log_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "lxc_hosts": {
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "lxd-compute_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "lxd-compute_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "magnum": {
+        "children": [],
+        "hosts": []
+    },
+    "magnum-infra_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "magnum-infra_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "magnum_all": {
+        "children": [
+            "magnum"
+        ],
+        "hosts": []
+    },
+    "magnum_container": {
+        "hosts": []
+    },
+    "manila-data_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "manila-data_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "manila-infra_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "manila-infra_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "manila_all": {
+        "children": [
+            "manila_data",
+            "manila_scheduler",
+            "manila_share",
+            "manila_api"
+        ],
+        "hosts": []
+    },
+    "manila_api": {
+        "children": [],
+        "hosts": []
+    },
+    "manila_container": {
+        "hosts": []
+    },
+    "manila_data": {
+        "children": [],
+        "hosts": []
+    },
+    "manila_data_container": {
+        "hosts": []
+    },
+    "manila_scheduler": {
+        "children": [],
+        "hosts": []
+    },
+    "manila_share": {
+        "children": [],
+        "hosts": []
+    },
+    "mano_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "mano_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "masakari-infra_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "masakari-infra_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "masakari-monitor_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "masakari-monitor_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "masakari_all": {
+        "children": [
+            "masakari_engine",
+            "masakari_monitor",
+            "masakari_api"
+        ],
+        "hosts": []
+    },
+    "masakari_api": {
+        "children": [],
+        "hosts": []
+    },
+    "masakari_api_container": {
+        "hosts": []
+    },
+    "masakari_engine": {
+        "children": [],
+        "hosts": []
+    },
+    "masakari_monitor": {
+        "children": [],
+        "hosts": []
+    },
+    "masakari_monitors_container": {
+        "hosts": []
+    },
+    "memcached": {
+        "children": [],
+        "hosts": [
+            "aio1_memcached_container-5f54c5d9"
+        ]
+    },
+    "memcached_all": {
+        "children": [
+            "memcached"
+        ],
+        "hosts": []
+    },
+    "memcached_container": {
+        "hosts": [
+            "aio1_memcached_container-5f54c5d9"
+        ]
+    },
+    "memcaching_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "memcaching_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "metering-alarm_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "metering-alarm_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "metering-compute_container": {
+        "hosts": []
+    },
+    "metering-compute_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "metering-compute_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "metering-infra_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "metering-infra_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "metrics_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "metrics_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "mistral-infra_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "mistral-infra_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "mistral_all": {
+        "children": [
+            "mistral_executor",
+            "mistral_notifier",
+            "mistral_engine",
+            "mistral_api"
+        ],
+        "hosts": []
+    },
+    "mistral_api": {
+        "children": [],
+        "hosts": []
+    },
+    "mistral_container": {
+        "hosts": []
+    },
+    "mistral_engine": {
+        "children": [],
+        "hosts": []
+    },
+    "mistral_executor": {
+        "children": [],
+        "hosts": []
+    },
+    "mistral_notifier": {
+        "children": [],
+        "hosts": []
+    },
+    "mq_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "mq_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "network_all": {
+        "hosts": [
+            "aio1_neutron_server_container-b2557e8f",
+            "aio1"
+        ]
+    },
+    "network_containers": {
+        "children": [
+            "aio1-host_containers"
+        ],
+        "hosts": []
+    },
+    "network_hosts": {
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "neutron_agent": {
+        "children": [],
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "neutron_agents_container": {
+        "hosts": []
+    },
+    "neutron_all": {
+        "children": [
+            "neutron_bgp_dragent",
+            "neutron_lbaas_agent",
+            "neutron_server",
+            "neutron_sriov_nic_agent",
+            "neutron_openvswitch_agent",
+            "neutron_metering_agent",
+            "neutron_metadata_agent",
+            "opendaylight",
+            "neutron_l3_agent",
+            "neutron_agent",
+            "neutron_dhcp_agent",
+            "neutron_linuxbridge_agent"
+        ],
+        "hosts": []
+    },
+    "neutron_bgp_dragent": {
+        "children": [],
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "neutron_dhcp_agent": {
+        "children": [],
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "neutron_l3_agent": {
+        "children": [],
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "neutron_lbaas_agent": {
+        "children": [],
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "neutron_linuxbridge_agent": {
+        "children": [],
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "neutron_metadata_agent": {
+        "children": [],
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "neutron_metering_agent": {
+        "children": [],
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "neutron_openvswitch_agent": {
+        "children": [],
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "neutron_server": {
+        "children": [],
+        "hosts": [
+            "aio1_neutron_server_container-b2557e8f"
+        ]
+    },
+    "neutron_server_container": {
+        "hosts": [
+            "aio1_neutron_server_container-b2557e8f"
+        ]
+    },
+    "neutron_sriov_nic_agent": {
+        "children": [],
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "nova_all": {
+        "children": [
+            "nova_api_metadata",
+            "nova_api_placement",
+            "nova_conductor",
+            "nova_compute",
+            "nova_console",
+            "ironic_compute",
+            "nova_api_os_compute",
+            "nova_scheduler"
+        ],
+        "hosts": []
+    },
+    "nova_api_container": {
+        "hosts": [
+            "aio1_nova_api_container-bf4c8d6d"
+        ]
+    },
+    "nova_api_metadata": {
+        "children": [],
+        "hosts": [
+            "aio1_nova_api_container-bf4c8d6d"
+        ]
+    },
+    "nova_api_os_compute": {
+        "children": [],
+        "hosts": [
+            "aio1_nova_api_container-bf4c8d6d"
+        ]
+    },
+    "nova_api_placement": {
+        "children": [],
+        "hosts": [
+            "aio1_nova_api_container-bf4c8d6d"
+        ]
+    },
+    "nova_compute": {
+        "children": [],
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "nova_compute_container": {
+        "hosts": []
+    },
+    "nova_conductor": {
+        "children": [],
+        "hosts": [
+            "aio1_nova_api_container-bf4c8d6d"
+        ]
+    },
+    "nova_console": {
+        "children": [],
+        "hosts": [
+            "aio1_nova_api_container-bf4c8d6d"
+        ]
+    },
+    "nova_scheduler": {
+        "children": [],
+        "hosts": [
+            "aio1_nova_api_container-bf4c8d6d"
+        ]
+    },
+    "nspawn_hosts": {
+        "hosts": []
+    },
+    "octavia-api": {
+        "children": [],
+        "hosts": []
+    },
+    "octavia-health-manager": {
+        "children": [],
+        "hosts": []
+    },
+    "octavia-housekeeping": {
+        "children": [],
+        "hosts": []
+    },
+    "octavia-infra_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "octavia-infra_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "octavia-worker": {
+        "children": [],
+        "hosts": []
+    },
+    "octavia_all": {
+        "children": [
+            "octavia-worker",
+            "octavia-api",
+            "octavia-health-manager",
+            "octavia-housekeeping"
+        ],
+        "hosts": []
+    },
+    "octavia_server_container": {
+        "hosts": []
+    },
+    "opendaylight": {
+        "children": [],
+        "hosts": [
+            "aio1_neutron_server_container-b2557e8f"
+        ]
+    },
+    "operator_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "operator_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "orchestration_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "orchestration_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "os-infra_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "os-infra_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "oslomsg-rpc_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "oslomsg-rpc_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "panko_all": {
+        "children": [
+            "panko_api"
+        ],
+        "hosts": []
+    },
+    "panko_api": {
+        "children": [],
+        "hosts": []
+    },
+    "panko_container": {
+        "hosts": []
+    },
+    "pkg_repo": {
+        "children": [],
+        "hosts": [
+            "aio1_repo_container-24d25fe8"
+        ]
+    },
+    "policy_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "policy_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "powervm-compute_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "powervm-compute_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "qdrouterd": {
+        "children": [],
+        "hosts": []
+    },
+    "qdrouterd_all": {
+        "children": [
+            "qdrouterd"
+        ],
+        "hosts": []
+    },
+    "qdrouterd_container": {
+        "hosts": []
+    },
+    "qemu-compute_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "qemu-compute_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "rabbit_mq_container": {
+        "hosts": [
+            "aio1_rabbit_mq_container-f772bf77"
+        ]
+    },
+    "rabbitmq": {
+        "children": [],
+        "hosts": [
+            "aio1_rabbit_mq_container-f772bf77"
+        ]
+    },
+    "rabbitmq_all": {
+        "children": [
+            "rabbitmq"
+        ],
+        "hosts": []
+    },
+    "remote": {
+        "children": [
+            "swift-remote_hosts"
+        ],
+        "hosts": []
+    },
+    "remote_containers": {
+        "children": [
+            "swift-remote_containers"
+        ],
+        "hosts": []
+    },
+    "repo-infra_all": {
+        "hosts": [
+            "aio1",
+            "aio1_repo_container-24d25fe8"
+        ]
+    },
+    "repo-infra_containers": {
+        "children": [
+            "aio1-host_containers"
+        ],
+        "hosts": []
+    },
+    "repo-infra_hosts": {
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "repo_all": {
+        "children": [
+            "pkg_repo"
+        ],
+        "hosts": []
+    },
+    "repo_container": {
+        "hosts": [
+            "aio1_repo_container-24d25fe8"
+        ]
+    },
+    "reservation_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "reservation_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "rsyslog": {
+        "children": [],
+        "hosts": []
+    },
+    "rsyslog_all": {
+        "children": [
+            "rsyslog"
+        ],
+        "hosts": []
+    },
+    "rsyslog_container": {
+        "hosts": []
+    },
+    "sahara-infra_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "sahara-infra_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "sahara_all": {
+        "children": [
+            "sahara_api",
+            "sahara_engine"
+        ],
+        "hosts": []
+    },
+    "sahara_api": {
+        "children": [],
+        "hosts": []
+    },
+    "sahara_container": {
+        "hosts": []
+    },
+    "sahara_engine": {
+        "children": [],
+        "hosts": []
+    },
+    "shared-infra_all": {
+        "hosts": [
+            "aio1_utility_container-ec62b53d",
+            "aio1",
+            "aio1_memcached_container-5f54c5d9",
+            "aio1_galera_container-3681566c",
+            "aio1_rabbit_mq_container-f772bf77"
+        ]
+    },
+    "shared-infra_containers": {
+        "children": [
+            "aio1-host_containers"
+        ],
+        "hosts": []
+    },
+    "shared-infra_hosts": {
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "storage-infra_all": {
+        "hosts": [
+            "aio1",
+            "aio1_cinder_api_container-147f4038"
+        ]
+    },
+    "storage-infra_containers": {
+        "children": [
+            "aio1-host_containers"
+        ],
+        "hosts": []
+    },
+    "storage-infra_hosts": {
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "storage_all": {
+        "hosts": [
+            "aio1",
+            "aio1_cinder_volumes_container-214cee64"
+        ]
+    },
+    "storage_containers": {
+        "children": [
+            "aio1-host_containers"
+        ],
+        "hosts": []
+    },
+    "storage_hosts": {
+        "hosts": [
+            "aio1"
+        ]
+    },
+    "swift-proxy_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "swift-proxy_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "swift-remote_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "swift-remote_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "swift_acc": {
+        "children": [],
+        "hosts": []
+    },
+    "swift_acc_container": {
+        "hosts": []
+    },
+    "swift_all": {
+        "children": [
+            "swift_acc",
+            "swift_cont",
+            "swift_obj",
+            "swift_proxy"
+        ],
+        "hosts": []
+    },
+    "swift_cont": {
+        "children": [],
+        "hosts": []
+    },
+    "swift_cont_container": {
+        "hosts": []
+    },
+    "swift_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "swift_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "swift_obj": {
+        "children": [],
+        "hosts": []
+    },
+    "swift_obj_container": {
+        "hosts": []
+    },
+    "swift_proxy": {
+        "children": [],
+        "hosts": []
+    },
+    "swift_proxy_container": {
+        "hosts": []
+    },
+    "swift_remote": {
+        "children": [],
+        "hosts": []
+    },
+    "swift_remote_all": {
+        "children": [
+            "swift_remote"
+        ],
+        "hosts": []
+    },
+    "swift_remote_container": {
+        "hosts": []
+    },
+    "tacker_all": {
+        "children": [
+            "tacker_server"
+        ],
+        "hosts": []
+    },
+    "tacker_container": {
+        "hosts": []
+    },
+    "tacker_server": {
+        "children": [],
+        "hosts": []
+    },
+    "trove-infra_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "trove-infra_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "trove_all": {
+        "children": [
+            "trove_api",
+            "trove_conductor",
+            "trove_taskmanager"
+        ],
+        "hosts": []
+    },
+    "trove_api": {
+        "children": [],
+        "hosts": []
+    },
+    "trove_api_container": {
+        "hosts": []
+    },
+    "trove_conductor": {
+        "children": [],
+        "hosts": []
+    },
+    "trove_taskmanager": {
+        "children": [],
+        "hosts": []
+    },
+    "unbound": {
+        "children": [],
+        "hosts": []
+    },
+    "unbound_all": {
+        "children": [
+            "unbound"
+        ],
+        "hosts": []
+    },
+    "unbound_container": {
+        "hosts": []
+    },
+    "unbound_containers": {
+        "children": [],
+        "hosts": []
+    },
+    "unbound_hosts": {
+        "children": [],
+        "hosts": []
+    },
+    "utility": {
+        "children": [],
+        "hosts": [
+            "aio1_utility_container-ec62b53d"
+        ]
+    },
+    "utility_all": {
+        "children": [
+            "utility"
+        ],
+        "hosts": []
+    },
+    "utility_container": {
+        "hosts": [
+            "aio1_utility_container-ec62b53d"
+        ]
+    }
+}

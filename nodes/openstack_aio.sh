@@ -9,15 +9,15 @@ fi
 POOL=nfv
 POOL_PATH=/nfv
 
-#IMG_NAME=ubuntu-18.04-server-cloudimg-amd64.img
-IMG_NAME=ubuntu-16.04-server-cloudimg-amd64-disk1.img
+IMG_NAME=ubuntu-18.04-server-cloudimg-amd64.img
+#IMG_NAME=ubuntu-16.04-server-cloudimg-amd64-disk1.img
 SERVER_NAME=$1
 RAM=$2
 
 ## Clone disk for the new server
 sudo virsh vol-clone --pool ${POOL} ${IMG_NAME} ${SERVER_NAME}.img
 
-sudo qemu-img resize /nfv/${SERVER_NAME}.img +100G
+sudo qemu-img resize /nfv/${SERVER_NAME}.img +200G
 
 ## SERVER
 

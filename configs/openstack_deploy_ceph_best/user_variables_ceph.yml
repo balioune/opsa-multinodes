@@ -1,0 +1,13 @@
+cinder_ceph_client: cinder
+cinder_default_volume_type: RBD
+common_single_host_mode: true
+glance_ceph_client: glance
+glance_default_store: rbd
+glance_rbd_store_pool: images
+journal_size: 100
+monitor_interface: eth1
+nova_libvirt_images_rbd_pool: vms
+openstack_config: true
+osd_scenario: collocated
+pool_default_pg_num: 16
+public_network: 172.29.236.0/22
