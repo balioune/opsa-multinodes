@@ -1,0 +1,8 @@
+---
+container_skel:
+  neutron_server_container:
+    belongs_to:
+      - shared-infra_containers
+  neutron_agents_container:
+    properties:
+      is_metal: true
