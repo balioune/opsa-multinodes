@@ -1,0 +1,73 @@
+# CONTROLLER
+auto br-mgmt
+iface br-mgmt inet static
+    bridge_stp off
+    bridge_waitport 0
+    bridge_fd 0
+    bridge_ports ens4.10
+    address 172.29.236.15
+    netmask 255.255.252.0
+
+auto br-vxlan
+iface br-vxlan inet static
+    bridge_stp off
+    bridge_waitport 0
+    bridge_fd 0
+    bridge_ports ens4.30
+    address 172.29.240.15
+    netmask 255.255.252.0
+
+# compute Network VLAN bridge
+auto br-vlan
+iface br-vlan inet manual
+    bridge_stp off
+    bridge_waitport 0
+    bridge_fd 0
+    bridge_ports ens5
+
+# compute Storage bridge
+auto br-storage
+iface br-storage inet static
+    bridge_stp off
+    bridge_waitport 0
+    bridge_fd 0
+    bridge_ports ens4.20
+    address 172.29.244.15
+    netmask 255.255.252.0
+
+# COMPUTE
+auto br-mgmt
+iface br-mgmt inet static
+    bridge_stp off
+    bridge_waitport 0
+    bridge_fd 0
+    bridge_ports ens4.10
+    address 172.29.236.25
+    netmask 255.255.252.0
+
+auto br-vxlan
+iface br-vxlan inet static
+    bridge_stp off
+    bridge_waitport 0
+    bridge_fd 0
+    bridge_ports ens4.30
+    address 172.29.240.25
+    netmask 255.255.252.0
+
+# compute Network VLAN bridge
+auto br-vlan
+iface br-vlan inet manual
+    bridge_stp off
+    bridge_waitport 0
+    bridge_fd 0
+    bridge_ports ens5
+
+# compute Storage bridge
+auto br-storage
+iface br-storage inet static
+    bridge_stp off
+    bridge_waitport 0
+    bridge_fd 0
+    bridge_ports ens4.20
+    address 172.29.244.25
+    netmask 255.255.252.0
