@@ -131,7 +131,7 @@ image_hosts: *infrastructure_hosts
 compute-infra_hosts: *infrastructure_hosts
 
 # heat
-#orchestration_hosts: *infrastructure_hosts
+orchestration_hosts: *infrastructure_hosts
 
 # horizon
 dashboard_hosts: *infrastructure_hosts
@@ -140,13 +140,13 @@ dashboard_hosts: *infrastructure_hosts
 network_hosts: *infrastructure_hosts
 
 # ceilometer (telemetry data collection)
-#metering-infra_hosts: *infrastructure_hosts
+metering-infra_hosts: *infrastructure_hosts
 
 # aodh (telemetry alarm service)
-#metering-alarm_hosts: *infrastructure_hosts
+metering-alarm_hosts: *infrastructure_hosts
 
 # gnocchi (telemetry metrics storage)
-#metrics_hosts: *infrastructure_hosts
+metrics_hosts: *infrastructure_hosts
 
 # ceilometer compute agent (telemetry data collection)
-#metering-compute_hosts: *compute_hosts
+metering-compute_hosts: *compute_hosts
