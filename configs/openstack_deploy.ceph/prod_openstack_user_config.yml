@@ -12,7 +12,7 @@ used_ips:
 
 global_overrides:
   cidr_networks: *cidr_networks
-  internal_lb_vip_address: 172.29.236.15
+  internal_lb_vip_address: 172.29.236.100
   #
   # The below domain name must resolve to an IP address
   # in the CIDR specified in haproxy_keepalived_external_vip_cidr.
@@ -70,26 +70,26 @@ global_overrides:
 
 _infrastructure_hosts: &infrastructure_hosts
   infra1:
-    ip: 172.29.236.15
+    ip: 172.29.236.100
   infra2:
     ip: 172.29.236.25
 
 # nova hypervisors
 compute_hosts: &compute_hosts
   infra1:
-    ip: 172.29.236.15
+    ip: 172.29.236.100
   infra2:
     ip: 172.29.236.25
 
 ceph-osd_hosts:
   infra1:
-    ip: 172.29.236.15
+    ip: 172.29.236.100
   infra2:
     ip: 172.29.236.25
 
 ceph-rgw_hosts:
   infra1:
-    ip: 172.29.236.15
+    ip: 172.29.236.100
   infra2:
     ip: 172.29.236.25
 # galera, memcache, rabbitmq, utility
@@ -109,7 +109,7 @@ haproxy_hosts: *infrastructure_hosts
 # rsyslog server
 log_hosts:
   infra1:
-    ip: 172.29.236.15
+    ip: 172.29.236.100
 
 ###
 ### OpenStack
