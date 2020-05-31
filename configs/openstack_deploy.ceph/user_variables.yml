@@ -191,7 +191,7 @@ glance_default_store: rbd
 glance_rbd_store_pool: images
 nova_libvirt_images_rbd_pool: vms
 
-devices: [/dev/vdc, /dev/vdd, /dev/vde]
+devices: [/dev/sdb, /dev/sdc]
 cinder_backends:
   "RBD":
     volume_driver: cinder.volume.drivers.rbd.RBDDriver
