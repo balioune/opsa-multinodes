@@ -9,16 +9,17 @@ fi
 POOL=nfv
 POOL_PATH=/nfv
 
-IMG_NAME=CentOS-7-aarch64-GenericCloud-2003.qcow2
-# IMG_NAME=ubuntu-18.04-server-cloudimg-amd64.img
+# IMG_NAME=CentOS-7-aarch64-GenericCloud-2003.qcow2
+#IMG_NAME=ubuntu-18.04-server-cloudimg-amd64.img
 #IMG_NAME=ubuntu-16.04-server-cloudimg-amd64-disk1.img
+IMG_NAME=pfSense-CE-2.4.4-RELEASE-p3-amd64.img
 SERVER_NAME=$1
 RAM=$2
 
 ## Clone disk for the new server
 sudo virsh vol-clone --pool ${POOL} ${IMG_NAME} ${SERVER_NAME}.img
 
-sudo qemu-img resize /nfv/${SERVER_NAME}.img +50G
+sudo qemu-img resize /nfv/${SERVER_NAME}.img +20G
 
 ## SERVER
 
@@ -63,8 +64,9 @@ sudo virsh pool-refresh $POOL
 sudo virt-install -r $RAM     \
   -n $SERVER_NAME     \
   --vcpus=8    \
+  --graphics vnc \
   --memballoon virtio    \
   --boot hd     \
-  --network network=default  \
+  --network network=default --network network=datacenter\
   --disk vol=${POOL}/${SERVER_NAME}.img,format=qcow2,bus=virtio \
   --disk vol=${POOL}/${SERVER_NAME}.iso,bus=virtio
