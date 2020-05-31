@@ -19,10 +19,6 @@ debug: True
 ## Installation method for OpenStack services
 install_method: "source"
 
-## Tempest settings
-## Tempest settings
-tempest_public_subnet_cidr: "172.29.248.0/22"
-tempest_public_subnet_allocation_pools: "172.29.249.110-172.29.249.200"
 
 ## Galera settings
 galera_monitoring_allowed_source: "0.0.0.0/0"
@@ -167,11 +163,6 @@ repo_build_pip_extra_indexes:
 # AIO build time. Options are: [machinectl, overlayfs, btrfs, zfs, dir, lvm]
 lxc_container_backing_store: "dir"
 
-## Always setup tempest, the resources for it, then execute tests
-tempest_install: yes
-tempest_run: yes
-
-
 # For testing purposes in public clouds, we need to ignore these
 # services when trying to do a reload of nova services.
 nova_service_negate:
@@ -185,3 +176,29 @@ openstack_user_kernel_options:
   - key: 'kernel.printk'
     value: '4 1 7 4'
 
+## ceph-ansible AIO settings
+common_single_host_mode: true
+monitor_interface: eth1 # Management network in the AIO
+public_network: "172.29.236.0/22"
+journal_size: 10240
+osd_scenario: collocated
+pool_default_pg_num: 16
+openstack_config: true # Ceph ansible automatically creates pools & keys
+cinder_ceph_client: cinder
+cinder_default_volume_type: RBD
+glance_ceph_client: glance
+glance_default_store: rbd
+glance_rbd_store_pool: images
+nova_libvirt_images_rbd_pool: vms
+
+devices: [/dev/vdc, /dev/vdd, /dev/vde]
+cinder_backends:
+  "RBD":
+    volume_driver: cinder.volume.drivers.rbd.RBDDriver
+    rbd_pool: volumes
+    rbd_ceph_conf: /etc/ceph/ceph.conf
+    rbd_store_chunk_size: 8
+    volume_backend_name: rbddriver
+    rbd_user: cinder
+    rbd_secret_uuid: "{{ cinder_ceph_client_uuid }}"
+    report_discard_supported: true

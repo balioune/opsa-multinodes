@@ -1,24 +1,25 @@
 ---
-cidr_networks:
+cidr_networks: &cidr_networks
   container: 172.29.236.0/22
   tunnel: 172.29.240.0/22
   storage: 172.29.244.0/22
 
 used_ips:
   - "172.29.236.1,172.29.236.50"
-  - "172.29.236.100"
   - "172.29.240.1,172.29.240.50"
-  - "172.29.240.100"
   - "172.29.244.1,172.29.244.50"
-  - "172.29.244.100"
   - "172.29.248.1,172.29.248.50"
-  - "172.29.248.100"
 
 global_overrides:
-  internal_lb_vip_address: 172.29.236.100
-  # The external IP is quoted simply to ensure that the .aio file can be used as input
-  # dynamic inventory testing.
-  external_lb_vip_address: "192.168.122.251"
+  cidr_networks: *cidr_networks
+  internal_lb_vip_address: 172.29.236.15
+  #
+  # The below domain name must resolve to an IP address
+  # in the CIDR specified in haproxy_keepalived_external_vip_cidr.
+  # If using different protocols (https/http) for the public/internal
+  # endpoints the two addresses must be different.
+  #
+  external_lb_vip_address: cloud.sudpay.com
   management_bridge: "br-mgmt"
   provider_networks:
     - network:
@@ -42,23 +43,14 @@ global_overrides:
         group_binds:
           - neutron_linuxbridge_agent
     - network:
-        container_bridge: "br-vlan"
-        container_type: "veth"
-        container_interface: "eth12"
-        host_bind_override: "eth12"
-        type: "flat"
-        net_name: "flat"
+        container_bridge: br-datacenter
+        container_interface: eth30
+        container_type: veth
         group_binds:
           - neutron_linuxbridge_agent
-    - network:
-        container_bridge: "br-vlan"
-        container_type: "veth"
-        container_interface: "eth11"
-        type: "vlan"
-        range: "101:200,301:400"
-        net_name: "vlan"
-        group_binds:
-          - neutron_linuxbridge_agent
+        host_bind_override: eth-dc
+        net_name: datacenter
+        type: flat
     - network:
         container_bridge: "br-storage"
         container_type: "veth"
@@ -70,16 +62,80 @@ global_overrides:
           - cinder_api
           - cinder_volume
           - nova_compute
-          - swift_proxy
+          - ceph-osd
 
+###
+### Infrastructure
+###
+
+_infrastructure_hosts: &infrastructure_hosts
+  infra1:
+    ip: 172.29.236.15
+  infra2:
+    ip: 172.29.236.16
+
+# nova hypervisors
+compute_hosts: &compute_hosts
+  infra1:
+    ip: 172.29.236.15
+  infra2:
+    ip: 172.29.236.16
+
+ceph-osd_hosts:
+  infra1:
+    ip: 172.29.236.15
+  infra2:
+    ip: 172.29.236.16
+
+ceph-rgw_hosts:
+  infra1:
+    ip: 172.29.236.15
+  infra2:
+    ip: 172.29.236.16
 # galera, memcache, rabbitmq, utility
-shared-infra_hosts:
-  aio1:
-    ip: 172.29.236.100
-    container_vars:
-      # Optional | container_tech for a target host, default is "lxc".
-      container_tech: "lxc"
+shared-infra_hosts: *infrastructure_hosts
 
-repo-infra_hosts:
-  aio1:
-    ip: 172.29.236.100
+# ceph-mon containers
+ceph-mon_hosts: *infrastructure_hosts
+
+# repository (apt cache, python packages, etc)
+repo-infra_hosts: *infrastructure_hosts
+
+# load balancer
+# Ideally the load balancer should not use the Infrastructure hosts.
+# Dedicated hardware is best for improved performance and security.
+haproxy_hosts: *infrastructure_hosts
+
+# rsyslog server
+log_hosts:
+  infra1:
+    ip: 172.29.236.15
+  infra2:
+    ip: 172.29.236.16
+
+###
+### OpenStack
+###
+
+# keystone
+identity_hosts: *infrastructure_hosts
+
+# cinder api services
+storage-infra_hosts: *infrastructure_hosts
+
+# cinder volume hosts (Ceph RBD-backed)
+storage_hosts: *infrastructure_hosts
+
+# glance
+image_hosts: *infrastructure_hosts
+
+# nova api, conductor, etc services
+compute-infra_hosts: *infrastructure_hosts
+
+# horizon
+dashboard_hosts: *infrastructure_hosts
+
+# neutron server, agents (L3, etc)
+network_hosts: *infrastructure_hosts
+
+

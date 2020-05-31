@@ -1,11 +1,30 @@
-# CONTROLLER
+source-directory /etc/network/interfaces.d
+auto lo
+iface lo inet loopback
+
+auto br-datacenter
+iface br-datacenter inet static
+       address PUBLIC_IP_ENO1
+       netmask NET_MASK_ENO1
+       broadcast BROADCAST
+       gateway GATEWAY
+       bridge_ports eno1
+       bridge_stp off
+       bridge_fd 0
+       bridge_maxwait 0
+       post-up ifconfig br-datacenter up
+       post-up ip link add veth-dc type veth peer name eth-dc
+       post-up brctl addif br-datacenter eth-dc
+       post-up ifconfig eth-dc up
+       post-up ifconfig veth-dc up
+
 auto br-mgmt
 iface br-mgmt inet static
     bridge_stp off
     bridge_waitport 0
     bridge_fd 0
-    bridge_ports ens4.10
-    address 172.29.236.15
+    bridge_ports eno2.10
+    address 172.29.236.100
     netmask 255.255.252.0
 
 auto br-vxlan
@@ -13,17 +32,9 @@ iface br-vxlan inet static
     bridge_stp off
     bridge_waitport 0
     bridge_fd 0
-    bridge_ports ens4.30
-    address 172.29.240.15
+    bridge_ports eno2.30
+    address 172.29.240.100
     netmask 255.255.252.0
-
-# compute Network VLAN bridge
-auto br-vlan
-iface br-vlan inet manual
-    bridge_stp off
-    bridge_waitport 0
-    bridge_fd 0
-    bridge_ports ens5
 
 # compute Storage bridge
 auto br-storage
@@ -31,43 +42,9 @@ iface br-storage inet static
     bridge_stp off
     bridge_waitport 0
     bridge_fd 0
-    bridge_ports ens4.20
-    address 172.29.244.15
+    bridge_ports eno2.20
+    address 172.29.244.100
     netmask 255.255.252.0
+source /etc/network/interfaces.d/*.cfg
 
-# COMPUTE
-auto br-mgmt
-iface br-mgmt inet static
-    bridge_stp off
-    bridge_waitport 0
-    bridge_fd 0
-    bridge_ports ens4.10
-    address 172.29.236.25
-    netmask 255.255.252.0
 
-auto br-vxlan
-iface br-vxlan inet static
-    bridge_stp off
-    bridge_waitport 0
-    bridge_fd 0
-    bridge_ports ens4.30
-    address 172.29.240.25
-    netmask 255.255.252.0
-
-# compute Network VLAN bridge
-auto br-vlan
-iface br-vlan inet manual
-    bridge_stp off
-    bridge_waitport 0
-    bridge_fd 0
-    bridge_ports ens5
-
-# compute Storage bridge
-auto br-storage
-iface br-storage inet static
-    bridge_stp off
-    bridge_waitport 0
-    bridge_fd 0
-    bridge_ports ens4.20
-    address 172.29.244.25
-    netmask 255.255.252.0
