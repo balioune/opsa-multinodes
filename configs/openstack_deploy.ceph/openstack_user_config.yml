@@ -48,7 +48,7 @@ global_overrides:
         container_type: veth
         group_binds:
           - neutron_linuxbridge_agent
-        host_bind_override: eth-dc
+        host_bind_override: eno2
         net_name: datacenter
         type: flat
     - network:
