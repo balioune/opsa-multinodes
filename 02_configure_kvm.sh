@@ -11,7 +11,8 @@ sudo virsh pool-build ${POOL}
 sudo virsh pool-start ${POOL}
 
 cd $POOL_PATH
-wget https://cloud-images.ubuntu.com/releases/16.04/release/ubuntu-16.04-server-cloudimg-amd64-disk1.img
+# wget https://cloud-images.ubuntu.com/releases/16.04/release/ubuntu-16.04-server-cloudimg-amd64-disk1.img
+wget https://cloud-images.ubuntu.com/releases/focal/release-20210415/ubuntu-20.04-server-cloudimg-amd64-disk-kvm.img
 
 sudo virsh pool-refresh $POOL
 
